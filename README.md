@@ -1,4 +1,5 @@
 # PDFInvoicer
+Programmatically create PDF invoices in PHP with use of FPDF.
 Composer port of a fpdf wrapper/helper class
 
 ## Examples and usage
