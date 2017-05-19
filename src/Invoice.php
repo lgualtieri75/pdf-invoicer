@@ -1,6 +1,6 @@
 <?php
 
-namespace DavidFricker\PHPInvoicer
+namespace DavidFricker\PHPInvoicer;
 
 /*******************************************************************************
 * PHP Invoice                                                                  *
@@ -9,9 +9,10 @@ namespace DavidFricker\PHPInvoicer
 * Author:  Farjad Tahir	                                    				   *
 * http://www.splashpk.com                                                      *
 *******************************************************************************/
+
 require_once('inc/__autoload.php');
 
-class Invoice extends FPDF_rotation  {
+class Invoice extends \FPDF_rotation  {
 
 	private $font 			 = 'helvetica';	 	/* Font Name : See inc/fpdf/font for all supported fonts */
 	private $columnOpacity   = 0.06;		 	/* Items table background color opacity. Range (0.00 - 1) */
@@ -404,7 +405,7 @@ class Invoice extends FPDF_rotation  {
 				if($item['description']) 
 				{
 					//Precalculate height
-					$calculateHeight = new phpinvoice;
+					$calculateHeight = new self;
 					$calculateHeight->addPage();
 					$calculateHeight->setXY(0,0);
 					$calculateHeight->SetFont($this->font,'',7);	
@@ -577,4 +578,3 @@ class Invoice extends FPDF_rotation  {
 	}
 
 }
-?>
