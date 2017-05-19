@@ -56,7 +56,7 @@ class Invoice extends \FPDF_rotation  {
 		$this->setLanguage($language);
 		$this->setDocumentSize($size);
 		$this->setColor("#222222");
-		$this->FPDF('P','mm',array($this->document['w'],$this->document['h']));
+		$this->make('P','mm',array($this->document['w'],$this->document['h']));
 		$this->AliasNbPages();
 		$this->SetMargins($this->margins['l'],$this->margins['t'],$this->margins['r']);
 	}
