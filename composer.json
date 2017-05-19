@@ -1,0 +1,13 @@
+{
+    "name":"davidfricker/phpinvoicer",
+    "description":"PHP PDF Invoice generator",
+    "license": "MIT",
+    "require":{
+        "php":"^5.3.3 || ^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "DavidFricker\\PHPInvoicer\\": "src"
+        }
+    }
+}
