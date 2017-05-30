@@ -5,6 +5,6 @@ Composer port of a fpdf wrapper/helper class
 ## Examples and usage
 Usage examples can be found in the /examples folder.
 
-## Notes
+## Credit
 I did not write the code. I simply made it available via composer and fixed a PHP7 compat issue.
-If you know the URL for the original repo please submit a pull request so I can assign credit.
+The orginal repo can be found here: https://github.com/farjadtahir/pdf-invoicr
