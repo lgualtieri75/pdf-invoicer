@@ -259,7 +259,7 @@ class Invoice extends \FPDF_rotation  {
 	    //Title
 		$this->SetTextColor(0,0,0);
 		$this->SetFont($this->font,'B',20);
-	    $this->Cell(0,5,iconv("UTF-8", "ISO-8859-1",strtoupper($this->title)),0,1,'R');
+	    $this->Cell(0,5,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->title)),0,1,'R');
 		$this->SetFont($this->font,'',9);
 		$this->Ln(5);
 		
@@ -274,7 +274,7 @@ class Invoice extends \FPDF_rotation  {
 		if(!empty($this->reference)) {
 		  $this->Cell($positionX,$lineheight);
 		  $this->SetTextColor($this->color[0],$this->color[1],$this->color[2]);
-		  $this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['number']).':'),0,0,'L');
+		  $this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['number']).':'),0,0,'L');
 		  $this->SetTextColor(50,50,50);
 		  $this->SetFont($this->font,'',9);
 		  $this->Cell(0,$lineheight,$this->reference,0,1,'R');
@@ -283,7 +283,7 @@ class Invoice extends \FPDF_rotation  {
 		$this->Cell($positionX,$lineheight);
 		$this->SetFont($this->font,'B',9);
 		$this->SetTextColor($this->color[0],$this->color[1],$this->color[2]);
-		$this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['date'])).':',0,0,'L');	
+		$this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['date'])).':',0,0,'L');
 		$this->SetTextColor(50,50,50);
 		$this->SetFont($this->font,'',9);
 		$this->Cell(0,$lineheight,$this->date,0,1,'R');
@@ -293,7 +293,7 @@ class Invoice extends \FPDF_rotation  {
 		  $this->Cell($positionX,$lineheight);
 		  $this->SetFont($this->font,'B',9);
 		  $this->SetTextColor($this->color[0],$this->color[1],$this->color[2]);
-		  $this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['time'])).':',0,0,'L');	
+		  $this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['time'])).':',0,0,'L');
 		  $this->SetTextColor(50,50,50);
 		  $this->SetFont($this->font,'',9);
 		  $this->Cell(0,$lineheight,$this->time,0,1,'R');
@@ -303,7 +303,7 @@ class Invoice extends \FPDF_rotation  {
 			$this->Cell($positionX,$lineheight);
 			$this->SetFont($this->font,'B',9);
 			$this->SetTextColor($this->color[0],$this->color[1],$this->color[2]);
-			$this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['due'])).':',0,0,'L');	
+			$this->Cell(32,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['due'])).':',0,0,'L');
 			$this->SetTextColor(50,50,50);
 			$this->SetFont($this->font,'',9);
 			$this->Cell(0,$lineheight,$this->due,0,1,'R');
@@ -353,8 +353,8 @@ class Invoice extends \FPDF_rotation  {
 				$this->SetTextColor(100,100,100);
 				$this->Ln(7);
 				for($i=1; $i<max(count($this->from),count($this->to)); $i++) {
-					$this->Cell($width,$lineheight,iconv("UTF-8", "ISO-8859-1",$this->from[$i]),0,0,'L');
-					$this->Cell(0,$lineheight,iconv("UTF-8", "ISO-8859-1",$this->to[$i]),0,0,'L');
+					$this->Cell($width,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$this->from[$i]),0,0,'L');
+					$this->Cell(0,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$this->to[$i]),0,0,'L');
 					$this->Ln(5);
 				}	
 				$this->Ln(-6);
@@ -370,21 +370,21 @@ class Invoice extends \FPDF_rotation  {
 			$this->Ln(12);
 			$this->SetFont($this->font,'B',9);
 			$this->Cell(1,10,'',0,0,'L',0);
-			$this->Cell($this->firstColumnWidth,10,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['product'])),0,0,'L',0);
+			$this->Cell($this->firstColumnWidth,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['product'])),0,0,'L',0);
 			$this->Cell($this->columnSpacing,10,'',0,0,'L',0);
-			$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['qty'])),0,0,'C',0);
+			$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['qty'])),0,0,'C',0);
 			if(isset($this->vatField)) {
 				$this->Cell($this->columnSpacing,10,'',0,0,'L',0);
-				$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['vat'])),0,0,'C',0);
+				$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['vat'])),0,0,'C',0);
 			}
 			$this->Cell($this->columnSpacing,10,'',0,0,'L',0);
-			$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['price'])),0,0,'C',0);
+			$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['price'])),0,0,'C',0);
 			if(isset($this->discountField)) {
 				$this->Cell($this->columnSpacing,10,'',0,0,'L',0);
-				$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['discount'])),0,0,'C',0);
+				$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['discount'])),0,0,'C',0);
 			}
 			$this->Cell($this->columnSpacing,10,'',0,0,'L',0);
-			$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1",strtoupper($this->lang['total'])),0,0,'C',0);
+			$this->Cell($width_other,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($this->lang['total'])),0,0,'C',0);
 			$this->Ln();
 			$this->SetLineWidth(0.3);
 			$this->SetDrawColor($this->color[0],$this->color[1],$this->color[2]);
@@ -409,7 +409,7 @@ class Invoice extends \FPDF_rotation  {
 					$calculateHeight->addPage();
 					$calculateHeight->setXY(0,0);
 					$calculateHeight->SetFont($this->font,'',7);	
-					$calculateHeight->MultiCell($this->firstColumnWidth,3,iconv("UTF-8", "ISO-8859-1",$item['description']),0,'L',1);
+					$calculateHeight->MultiCell($this->firstColumnWidth,3,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$item['description']),0,'L',1);
 					$descriptionHeight = $calculateHeight->getY()+$cellHeight+2;
 					$pageHeight = $this->document['h']-$this->GetY()-$this->margins['t']-$this->margins['t'];
 					if($pageHeight < 35) 
@@ -423,14 +423,14 @@ class Invoice extends \FPDF_rotation  {
 				$this->SetFillColor($bgcolor,$bgcolor,$bgcolor);
 				$this->Cell(1,$cHeight,'',0,0,'L',1);
 				$x = $this->GetX();
-				$this->Cell($this->firstColumnWidth,$cHeight,iconv("UTF-8", "ISO-8859-1",$item['item']),0,0,'L',1);
+				$this->Cell($this->firstColumnWidth,$cHeight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$item['item']),0,0,'L',1);
 				if($item['description']) {
 					$resetX = $this->GetX();
 					$resetY = $this->GetY();
 					$this->SetTextColor(120,120,120);
 					$this->SetXY($x,$this->GetY()+8);
 					$this->SetFont($this->font,'',7);			
-					$this->MultiCell($this->firstColumnWidth,3,iconv("UTF-8", "ISO-8859-1",$item['description']),0,'L',1);
+					$this->MultiCell($this->firstColumnWidth,3,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$item['description']),0,'L',1);
 					//Calculate Height
 					$newY = $this->GetY();
 					$cHeight = $newY-$resetY+2;
@@ -451,7 +451,7 @@ class Invoice extends \FPDF_rotation  {
 				{
 					$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
 					if(isset($item['vat'])) {
-						$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $item['vat']),0,0,'C',1);
+						$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252//TRANSLIT', $item['vat']),0,0,'C',1);
 					} 
 					else 
 					{
@@ -460,13 +460,13 @@ class Invoice extends \FPDF_rotation  {
 					
 				}
 				$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
-				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $this->currency.' '.number_format($item['price'],2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
+				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252//TRANSLIT', $this->currency.' '.number_format($item['price'],2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
 				if(isset($this->discountField)) 
 				{
 					$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
 					if(isset($item['discount'])) 
 					{
-						$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252',$item['discount']),0,0,'C',1);
+						$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252//TRANSLIT',$item['discount']),0,0,'C',1);
 					} 
 					else 
 					{
@@ -474,7 +474,7 @@ class Invoice extends \FPDF_rotation  {
 					}
 				}
 				$this->Cell($this->columnSpacing,$cHeight,'',0,0,'L',0);
-				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252', $this->currency.' '.number_format($item['total'],2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
+				$this->Cell($width_other,$cHeight,iconv('UTF-8', 'windows-1252//TRANSLIT', $this->currency.' '.number_format($item['total'],2,$this->referenceformat[0],$this->referenceformat[1])),0,0,'C',1);
 				$this->Ln();
 				$this->Ln($this->columnSpacing);
 			}
@@ -503,7 +503,7 @@ class Invoice extends \FPDF_rotation  {
 				}
 				$this->SetFont($this->font,'b',8);
 				$this->Cell(1,$cellHeight,'',0,0,'L',1);
-				$this->Cell($width_other-1,$cellHeight,iconv('UTF-8', 'windows-1252',$total['name']),0,0,'L',1);
+				$this->Cell($width_other-1,$cellHeight,iconv('UTF-8', 'windows-1252//TRANSLIT',$total['name']),0,0,'L',1);
 				$this->Cell($this->columnSpacing,$cellHeight,'',0,0,'L',0);
 				$this->SetFont($this->font,'b',8);
 				$this->SetFillColor($bgcolor,$bgcolor,$bgcolor);
@@ -512,7 +512,7 @@ class Invoice extends \FPDF_rotation  {
 					$this->SetTextColor(255,255,255);
 					$this->SetFillColor($this->color[0],$this->color[1],$this->color[2]);
 				}
-				$this->Cell($width_other,$cellHeight,iconv('UTF-8', 'windows-1252',$total['value']),0,0,'C',1);
+				$this->Cell($width_other,$cellHeight,iconv('UTF-8', 'windows-1252//TRANSLIT',$total['value']),0,0,'C',1);
 				$this->Ln();
 				$this->Ln($this->columnSpacing);
 			}
@@ -552,7 +552,7 @@ class Invoice extends \FPDF_rotation  {
 			{
 				$this->SetFont($this->font,'b',9);
 				$this->SetTextColor(50,50,50);
-				$this->Cell(0,10,iconv("UTF-8", "ISO-8859-1",strtoupper($text[1])),0,0,'L',0);
+				$this->Cell(0,10,iconv("UTF-8", "ISO-8859-1//TRANSLIT",strtoupper($text[1])),0,0,'L',0);
 				$this->Ln();
 				$this->SetLineWidth(0.3);
 				$this->SetDrawColor($this->color[0],$this->color[1],$this->color[2]);
@@ -563,7 +563,7 @@ class Invoice extends \FPDF_rotation  {
 			{
 				$this->SetTextColor(80,80,80);
 				$this->SetFont($this->font,'',8);
-				$this->MultiCell(0,4,iconv("UTF-8", "ISO-8859-1",$text[1]),0,'L',0);
+				$this->MultiCell(0,4,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$text[1]),0,'L',0);
 				$this->Ln(4);
 			}
 		}
