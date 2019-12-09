@@ -352,7 +352,7 @@ class Invoice extends \FPDF_rotation  {
 				$this->SetFont($this->font,'',8);
 				$this->SetTextColor(100,100,100);
 				$this->Ln(7);
-				for($i=1; $i<max(count($this->from),count($this->to)); $i++) {
+                for($i=1; $i<max(count($this->from?:[]),count($this->to?:[])); $i++) {
 					$this->Cell($width,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$this->from[$i]),0,0,'L');
 					$this->Cell(0,$lineheight,iconv("UTF-8", "ISO-8859-1//TRANSLIT",$this->to[$i]),0,0,'L');
 					$this->Ln(5);
